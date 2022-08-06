@@ -7,14 +7,14 @@ const router = express.Router();
 
 router.get("/test-me", function (req, res) {
   // console.log('My batch is', abc.name)
-  // console.log(pks.welcome);
-  // console.log(singh.date);
-  // console.log(singh.month);
-  // console.log(singh.Batchinfo);
-  //    console.log(data.Name);
-  //    console.log(data.trimName);
-  //    console.log(data.Lower);
-  //    console.log(data.Upper);
+   console.log(pks.welcome);
+  console.log(singh.date);
+    console.log(singh.month);
+    console.log(singh.Batchinfo);
+     console.log(data.Name);
+    console.log(data.trimName);
+     console.log(data.Lower);
+     console.log(data.Upper);
   // abc.printName()
   res.send("My second ever api! by Prakash kumar singh");
 });
