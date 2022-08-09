@@ -43,7 +43,7 @@ res.send(movies)
 
 //solution 2
 
-router.get('/get-movie:indexnumber', function(req , res){
+router.get('/get-movie/:indexnumber', function(req , res){
     
   let movies2 = ['The earth' , 'Kanchana 2' , 'super man' , 'dhoni']
   let index =req.params.indexnumber
@@ -54,7 +54,7 @@ router.get('/get-movie:indexnumber', function(req , res){
 });
 
 //solution 3
-router.get('/get-movi:indexnumber', function(req , res){
+router.get('/get-movi/:indexnumber', function(req , res){
     
   let movies2 = ['The earth' , 'Kanchana 2' , 'super man' , 'dhoni']
   let index =req.params.indexnumber
