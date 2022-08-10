@@ -69,7 +69,7 @@ router.post("/test-post-4", function(req, res) {
     arr.push(ele)
     res.send(  { msg: arr , status: true }  )
 })
-
+// assignment solution morning
 let players =
    [
        {
@@ -101,13 +101,32 @@ let players =
        },
    ]
 
- router.post('/players', function (req, res) {
-    let newPlayer = req.body;
-    players.push(newPlayer);
+router.post('/players', function (req, res) {
+ let newPlayer = req.body;
+ let playername =newPlayer.name;
+
+ const pl = players.map(x=>x.name)
+ for (let i = 0; i < pl.length; i++) {
+    const element = pl[i];
+    if(playername===element){
+      return res.send("try other name")
+    }else{
+        players.push(newPlayer)
+    }
+}
+ res.send(  { data: players , status: true }  )
+
+// let unique = players.find(p=>p.name===playername?players.push(newPlayer):res.send("try other player"))
+// if(unique===playername){
+//     players.push(newPlayer);
+// }else{
+//     res.send("try other")
+// //}
+// console.log(p.name)
     
     //LOGIC WILL COME HERE
-    res.send(  { data: players , status: true }  )
-    console.log(players);
+   // res.send(  { data: players , status: true }  )
+    // console.log(players);
 
 })
 module.exports = router;
