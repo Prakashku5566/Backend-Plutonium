@@ -104,21 +104,29 @@ let players =
 router.post('/players', function (req, res) {
  let newPlayer = req.body;
  let playername =newPlayer.name;
+ let p = 0
 
  const pl = players.map(x=>x.name)
  for (let i = 0; i < pl.length; i++) {
     const element = pl[i];
     if(playername===element){
-      return res.send("try other name")
-    }else{
-        players.push(newPlayer)
-    }
+        p=1
+      return res.send("this  name is already exists")
+    }    
+     p=2  
 }
- res.send(  { data: players , status: true }  )
+if (p=2){
+    players.push(newPlayer);
+    res.send(  { data: players , status: true }  )
+}
+
+
+ 
+ 
 
 // let unique = players.find(p=>p.name===playername?players.push(newPlayer):res.send("try other player"))
 // if(unique===playername){
-//     players.push(newPlayer);
+//    
 // }else{
 //     res.send("try other")
 // //}
@@ -129,4 +137,45 @@ router.post('/players', function (req, res) {
     // console.log(players);
 
 })
+let arr = [23,45,67,456,555,689,5568]
+router.post("/post-query-1",function(req,res){
+let input = req.query.input;
+console.log(req.query.input)
+let result = arr.filter(x=>x>input)
+    res.send({data:result})
+})
+
+//2ND QN SOLUTION
+let persons = [{
+    name:"pk",
+    age:32,
+    voting : false
+},
+{
+    name:"ak",
+    age:34,
+    voting : false 
+},
+{
+    name:"dk",
+    age:12,
+    voting : false
+},
+{
+    name:"ok",
+    age:22,
+    voting : false
+}]
+
+router.post("/solution1",function(req,res){
+    let input = req.query.age
+    let final = persons.filter(a=>a.age>=input);
+    let final1 = final.map(x=>x.voting=true)
+    console.log(final)
+    res.send({final})
+})
+
+
+
+
 module.exports = router;
