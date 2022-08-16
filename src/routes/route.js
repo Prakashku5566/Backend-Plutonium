@@ -16,4 +16,6 @@ router.post("/createUser", UserController.createUser  )
 
 router.get("/getUsersData", UserController.getUsersData)
 
+router.put("/getbooks/:id",bookController.getbook)
+
 module.exports = router;

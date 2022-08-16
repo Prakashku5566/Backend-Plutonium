@@ -7,8 +7,10 @@ const createBook= async function (req, res) {
 }
 
 const getbook = async function(req,res){
-    let allbooks= await bookModel.find()
-    res.send({msg: allbooks})
+    let _id = req.param.id
+    let allbooks= await bookModel.findByIdAndUpdate(_id,req.body)
+    let data1 = await bookModel.findById(_id)
+    res.send({msg:data1})
 }
 
 module.exports.createBook = createBook;
