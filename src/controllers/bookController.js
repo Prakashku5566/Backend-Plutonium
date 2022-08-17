@@ -24,8 +24,12 @@ const getBooksInYear = async function(req,res){
 }
 
 const getRandomBooks =async (req,res)=>{
+    try{
     let book3 =await BookModel.find({$or:[{stockAvailable:true},{TotalPage:{$gt:500}}]})
     res.send({msg:book3})
+    }catch(e){
+        res.status(404).send("error "+e)
+    }
 }
 
 const getParticularBooks = async function(req,res){
