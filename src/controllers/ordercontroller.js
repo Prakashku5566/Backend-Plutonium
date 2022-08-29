@@ -11,6 +11,8 @@ if(user.length==0){
 }else if(product.length==0){
     return res.send("Please enter valid ProductID")
 }
+
+const update2 = await UserModel.findByIdAndUpdate({_id:data.userId},{isFreeAppUser:req.headers["isfreeappuser"]})
 const freeuser = await UserModel.find({_id:req.body.userId}).select({isFreeAppUser:1,_id:0})
 const a = freeuser[0].isFreeAppUser
 if(a==false){

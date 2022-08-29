@@ -12,7 +12,7 @@ router.get("/test-me", function (req, res) {
 
 
 
-router.post("/createBook", BookController.createBook  )
+router.post("/createProduct", BookController.createProduct  )
 
 router.post("/createOrder",commonMW.test1,OrderCont.createOrder)
 

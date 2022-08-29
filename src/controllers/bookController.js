@@ -71,7 +71,7 @@ const createProduct= async function (req, res) {
 
 
 
-module.exports.createBook = createProduct
+module.exports.createProduct = createProduct
 // module.exports.getBooksData = getBooksData
 // module.exports.updateBooks = updateBooks
 // module.exports.deleteBooks = deleteBooks
