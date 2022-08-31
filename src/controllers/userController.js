@@ -23,7 +23,7 @@ const loginUser = async function (req, res) {
   if (!user)
     return res.status(404).send({
       status: false,
-      msg: "username or the password is not corerct",
+      msg: "username or the password is not correct",
     });
 
   let token = jwt.sign(
