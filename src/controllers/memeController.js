@@ -2,8 +2,12 @@ let axios = require("axios");
 
 
 const getmemes = async function (req,res){
+  try{
     let memes = await axios.get("https://api.imgflip.com/get_memes")
     res.status(200).send(memes.data)
+  }catch(err){
+    res.status(500).send(err)
+  }
 }
 
 // assignment no 3 solved 
